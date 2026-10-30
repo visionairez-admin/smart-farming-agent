@@ -1,0 +1,29 @@
+# Python Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment & Credentials (DO NOT COMMIT SECRETS)
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Uploads (Keep folder structure only)
+uploads/*
+!uploads/.gitkeep
+
+# Operating system & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.bak

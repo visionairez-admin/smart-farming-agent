@@ -1,0 +1,436 @@
+{
+  "crops": [
+    {
+      "name": "Rice (Paddy)",
+      "hindi": "धान",
+      "marathi": "भात",
+      "season": "Kharif",
+      "duration_days": "120-150",
+      "soil_type": ["Clay", "Loamy"],
+      "water_requirement_mm": 1200,
+      "temperature_range": "20-35°C",
+      "rainfall_mm": "1000-2000",
+      "states": ["West Bengal", "Punjab", "Uttar Pradesh", "Andhra Pradesh", "Tamil Nadu", "Bihar"],
+      "varieties": ["Swarna", "IR-64", "Basmati 370", "Pusa Basmati 1121", "MTU-7029"],
+      "fertilizer_schedule": {
+        "basal": "NPK 40:30:30 kg/ha at transplanting",
+        "top_dress_1": "Urea 40 kg/ha at 20-25 days after transplanting",
+        "top_dress_2": "Urea 40 kg/ha at panicle initiation"
+      },
+      "irrigation": "Keep 2-5 cm water standing during vegetative stage; drain field 10 days before harvest",
+      "pests": ["Stem borer", "Brown planthopper", "Leaf folder", "Gall midge"],
+      "diseases": ["Blast", "Bacterial leaf blight", "Sheath blight", "False smut"],
+      "yield_qtl_ha": "25-50",
+      "msp_2024": 2183,
+      "market_price_range": "1800-2500 INR/quintal",
+      "storage": "Moisture below 14%; use metal bins or hermetic bags",
+      "harvesting_tips": "Harvest when 80% grains turn golden yellow; use combine harvester for large fields"
+    },
+    {
+      "name": "Wheat",
+      "hindi": "गेहूं",
+      "marathi": "गहू",
+      "season": "Rabi",
+      "duration_days": "100-130",
+      "soil_type": ["Loamy", "Clay Loam"],
+      "water_requirement_mm": 450,
+      "temperature_range": "10-25°C",
+      "rainfall_mm": "250-500",
+      "states": ["Punjab", "Haryana", "Uttar Pradesh", "Madhya Pradesh", "Rajasthan"],
+      "varieties": ["HD-3086", "GW-322", "PBW-343", "DBW-187", "K-9107"],
+      "fertilizer_schedule": {
+        "basal": "DAP 50 kg/ha + Urea 30 kg/ha at sowing",
+        "top_dress_1": "Urea 65 kg/ha at crown root initiation (21-25 DAS)",
+        "top_dress_2": "Urea 65 kg/ha at jointing stage"
+      },
+      "irrigation": "6 irrigations at: CRI, tillering, jointing, flowering, dough stage, maturity",
+      "pests": ["Aphids", "Termites", "Pink stem borer", "Armyworm"],
+      "diseases": ["Yellow rust", "Brown rust", "Powdery mildew", "Loose smut", "Karnal bunt"],
+      "yield_qtl_ha": "35-55",
+      "msp_2024": 2275,
+      "market_price_range": "2000-2800 INR/quintal",
+      "storage": "Moisture below 12%; store in gunny bags on wooden pallets",
+      "harvesting_tips": "Harvest at hard dough stage; moisture 20-22%; avoid delay to prevent shattering"
+    },
+    {
+      "name": "Cotton",
+      "hindi": "कपास",
+      "marathi": "कापूस",
+      "season": "Kharif",
+      "duration_days": "150-180",
+      "soil_type": ["Black Cotton Soil", "Deep Loamy"],
+      "water_requirement_mm": 700,
+      "temperature_range": "25-35°C",
+      "rainfall_mm": "500-1000",
+      "states": ["Gujarat", "Maharashtra", "Telangana", "Andhra Pradesh", "Karnataka"],
+      "varieties": ["Bt Cotton hybrids", "Bunny", "RCH-2", "MRC-7017", "NCS-145"],
+      "fertilizer_schedule": {
+        "basal": "NPK 40:20:20 kg/ha + Zinc Sulphate 25 kg/ha",
+        "top_dress_1": "Urea 60 kg/ha at 30-35 DAS",
+        "top_dress_2": "Urea 60 kg/ha at boll formation"
+      },
+      "irrigation": "Critical stages: germination, squaring, flowering, boll development",
+      "pests": ["Bollworm (American, Pink, Spotted)", "Whitefly", "Jassids", "Thrips", "Mealybug"],
+      "diseases": ["Alternaria blight", "Bacterial blight", "Grey mildew", "Wilt"],
+      "yield_qtl_ha": "15-25",
+      "msp_2024": 7121,
+      "market_price_range": "6500-8000 INR/quintal",
+      "storage": "Keep dry below 8% moisture; avoid contact with damp surfaces",
+      "harvesting_tips": "Pick in morning hours; harvest when bolls open fully; 3-4 pickings needed"
+    },
+    {
+      "name": "Soybean",
+      "hindi": "सोयाबीन",
+      "marathi": "सोयाबीन",
+      "season": "Kharif",
+      "duration_days": "90-110",
+      "soil_type": ["Well-drained Loamy", "Black Cotton"],
+      "water_requirement_mm": 500,
+      "temperature_range": "20-30°C",
+      "rainfall_mm": "600-900",
+      "states": ["Madhya Pradesh", "Maharashtra", "Rajasthan", "Karnataka"],
+      "varieties": ["JS-335", "JS-9560", "NRC-37", "Pusa 9712"],
+      "fertilizer_schedule": {
+        "basal": "NPK 20:60:40 kg/ha + Rhizobium seed treatment",
+        "top_dress_1": "Foliar spray of 2% Urea at flowering"
+      },
+      "irrigation": "Critical stages: flowering and pod filling; avoid waterlogging",
+      "pests": ["Girdle beetle", "Stem fly", "Spodoptera", "White fly"],
+      "diseases": ["Yellow mosaic virus", "Bacterial pustule", "Pod blight", "Charcoal rot"],
+      "yield_qtl_ha": "15-25",
+      "msp_2024": 4892,
+      "market_price_range": "4500-5500 INR/quintal",
+      "storage": "Moisture below 11%; hermetic storage recommended",
+      "harvesting_tips": "Harvest when 95% leaves shed and pods turn brown; avoid over-drying"
+    },
+    {
+      "name": "Sugarcane",
+      "hindi": "गन्ना",
+      "marathi": "ऊस",
+      "season": "Annual",
+      "duration_days": "300-365",
+      "soil_type": ["Deep Loamy", "Clay Loam"],
+      "water_requirement_mm": 1500,
+      "temperature_range": "20-35°C",
+      "rainfall_mm": "1000-1500",
+      "states": ["Uttar Pradesh", "Maharashtra", "Karnataka", "Tamil Nadu"],
+      "varieties": ["Co-0238", "CoJ-64", "Co-419", "MS-10001"],
+      "fertilizer_schedule": {
+        "basal": "NPK 75:37.5:37.5 kg/ha at planting",
+        "earthing_up": "Urea 150 kg/ha + MOP 75 kg/ha at earthing up",
+        "top_dress": "Urea 75 kg/ha at 3-4 months"
+      },
+      "irrigation": "Every 7-10 days in summer; every 15-20 days in winter",
+      "pests": ["Early shoot borer", "Top borer", "Wooly aphid", "Scale insects", "Pyrilla"],
+      "diseases": ["Red rot", "Smut", "Wilt", "Grassy shoot disease", "Ratoon stunting"],
+      "yield_qtl_ha": "700-900",
+      "msp_2024": 315,
+      "market_price_range": "300-350 INR/quintal",
+      "storage": "Crush within 48 hours of harvest for best sugar recovery",
+      "harvesting_tips": "Harvest at 12-14 months; brix 18-20%; cut at ground level for good ratoon"
+    },
+    {
+      "name": "Maize (Corn)",
+      "hindi": "मक्का",
+      "marathi": "मका",
+      "season": "Kharif/Rabi",
+      "duration_days": "80-110",
+      "soil_type": ["Loamy", "Sandy Loam"],
+      "water_requirement_mm": 500,
+      "temperature_range": "18-32°C",
+      "rainfall_mm": "500-750",
+      "states": ["Karnataka", "Andhra Pradesh", "Telangana", "Maharashtra", "Bihar"],
+      "varieties": ["DHM-117", "NK-6240", "Bio-9637", "Ganga-5", "Shaktiman"],
+      "fertilizer_schedule": {
+        "basal": "NPK 60:30:30 kg/ha at sowing",
+        "top_dress_1": "Urea 60 kg/ha at knee high stage",
+        "top_dress_2": "Urea 60 kg/ha at tasseling"
+      },
+      "irrigation": "Critical stages: germination, knee-high, tasseling, grain filling",
+      "pests": ["Fall Armyworm", "Stem borer", "Shoot fly", "Aphids"],
+      "diseases": ["Northern corn leaf blight", "Common rust", "Downy mildew", "Stalk rot"],
+      "yield_qtl_ha": "30-60",
+      "msp_2024": 2090,
+      "market_price_range": "1800-2400 INR/quintal",
+      "storage": "Moisture below 12%; use moisture-proof bags",
+      "harvesting_tips": "Harvest at physiological maturity (black layer stage); husk fully dried"
+    },
+    {
+      "name": "Groundnut",
+      "hindi": "मूंगफली",
+      "marathi": "भुईमूग",
+      "season": "Kharif",
+      "duration_days": "100-130",
+      "soil_type": ["Sandy Loam", "Red Soil"],
+      "water_requirement_mm": 500,
+      "temperature_range": "25-30°C",
+      "rainfall_mm": "500-750",
+      "states": ["Gujarat", "Andhra Pradesh", "Tamil Nadu", "Rajasthan", "Maharashtra"],
+      "varieties": ["GG-20", "TAG-24", "JL-24", "ICGS-76", "K-6"],
+      "fertilizer_schedule": {
+        "basal": "SSP 375 kg/ha + Gypsum 250 kg/ha at pegging",
+        "top_dress": "Foliar spray of 1% DAP at flower initiation"
+      },
+      "irrigation": "Critical stages: germination, flowering, pegging, pod filling",
+      "pests": ["Leaf miner", "Thrips", "Spodoptera", "White grub", "Termites"],
+      "diseases": ["Tikka leaf spot", "Rust", "Stem rot", "Bud necrosis virus"],
+      "yield_qtl_ha": "15-25",
+      "msp_2024": 6377,
+      "market_price_range": "5500-7000 INR/quintal",
+      "storage": "Moisture below 8-9%; aflatoxin risk management needed",
+      "harvesting_tips": "Harvest when inner pod walls show dark markings; dig carefully to avoid losses"
+    },
+    {
+      "name": "Turmeric",
+      "hindi": "हल्दी",
+      "marathi": "हळद",
+      "season": "Kharif",
+      "duration_days": "210-240",
+      "soil_type": ["Loamy", "Sandy Loam", "Well-drained"],
+      "water_requirement_mm": 1500,
+      "temperature_range": "20-35°C",
+      "rainfall_mm": "1000-2000",
+      "states": ["Andhra Pradesh", "Telangana", "Tamil Nadu", "Maharashtra", "Karnataka"],
+      "varieties": ["Erode Local", "Salem", "Alleppey", "Rajapore", "CO-1"],
+      "fertilizer_schedule": {
+        "basal": "FYM 30 tons/ha + NPK 60:50:120 kg/ha",
+        "top_dress_1": "Urea 60 kg/ha at 60 DAS",
+        "top_dress_2": "Urea 60 kg/ha at 120 DAS"
+      },
+      "irrigation": "Every 7-10 days; critical at rhizome development stage",
+      "pests": ["Rhizome scale", "Shoot borer", "Thrips"],
+      "diseases": ["Rhizome rot", "Leaf blotch", "Leaf spot", "Phyllosticta"],
+      "yield_qtl_ha": "150-250",
+      "msp_2024": null,
+      "market_price_range": "8000-15000 INR/quintal (dry)",
+      "storage": "Boil, dry to 6% moisture; store in cool dry place",
+      "harvesting_tips": "Harvest 7-9 months after planting when leaves turn yellow; boil within 48 hours"
+    }
+  ],
+  "soil_types": [
+    {
+      "type": "Alluvial Soil",
+      "hindi": "जलोढ़ मिट्टी",
+      "states": ["Uttar Pradesh", "Punjab", "Haryana", "West Bengal", "Bihar"],
+      "ph_range": "6.5-8.4",
+      "characteristics": "Highly fertile, good water retention, suitable for most crops",
+      "suitable_crops": ["Wheat", "Rice", "Sugarcane", "Maize", "Pulses"],
+      "deficiencies": ["Nitrogen", "Zinc"],
+      "improvement": "Add organic matter; use green manures like Dhaincha"
+    },
+    {
+      "type": "Black Cotton Soil (Regur)",
+      "hindi": "काली मिट्टी",
+      "states": ["Maharashtra", "Gujarat", "Madhya Pradesh", "Karnataka"],
+      "ph_range": "7.5-8.5",
+      "characteristics": "High clay content, swells when wet, cracks when dry, high fertility",
+      "suitable_crops": ["Cotton", "Soybean", "Wheat", "Jowar", "Sunflower"],
+      "deficiencies": ["Nitrogen", "Phosphorus", "Zinc"],
+      "improvement": "Deep ploughing; add phosphatic fertilizers; avoid waterlogging"
+    },
+    {
+      "type": "Red Soil",
+      "hindi": "लाल मिट्टी",
+      "states": ["Tamil Nadu", "Andhra Pradesh", "Karnataka", "Odisha"],
+      "ph_range": "5.5-7.5",
+      "characteristics": "Well-drained, low water retention, low fertility",
+      "suitable_crops": ["Groundnut", "Millets", "Pulses", "Cotton", "Tobacco"],
+      "deficiencies": ["Nitrogen", "Phosphorus", "Humus"],
+      "improvement": "Add organic matter; lime application for acidic soils; micro-irrigation"
+    },
+    {
+      "type": "Laterite Soil",
+      "hindi": "लैटेराइट मिट्टी",
+      "states": ["Kerala", "Karnataka", "Odisha", "Assam"],
+      "ph_range": "4.5-6.0",
+      "characteristics": "Acidic, leached, poor fertility, hard when dry",
+      "suitable_crops": ["Tea", "Coffee", "Cashew", "Coconut", "Rubber"],
+      "deficiencies": ["Nitrogen", "Phosphorus", "Calcium", "Magnesium"],
+      "improvement": "Lime application; add organic matter; terracing for erosion control"
+    }
+  ],
+  "pests_diseases": [
+    {
+      "name": "Fall Armyworm",
+      "type": "pest",
+      "hindi": "फॉल आर्मीवर्म",
+      "crops_affected": ["Maize", "Sorghum", "Rice", "Wheat"],
+      "symptoms": "Ragged holes in leaves; frass (excrement) in whorl; damaged growing point",
+      "identification": "Brown/grey caterpillar up to 4cm; inverted Y on head capsule",
+      "severity": "High - can cause 20-70% yield loss",
+      "organic_control": ["Neem oil spray 5ml/L", "Beauveria bassiana 5g/L", "Release Trichogramma egg parasitoid"],
+      "chemical_control": ["Chlorpyrifos 20EC @ 2.5ml/L", "Spinetoram 11.7SC @ 0.5ml/L", "Emamectin benzoate 5SG @ 0.4g/L"],
+      "ipm_strategy": "Scout weekly; use pheromone traps; apply insecticide in whorl at >1 larvae per plant"
+    },
+    {
+      "name": "Rice Blast",
+      "type": "disease",
+      "hindi": "धान का ब्लास्ट",
+      "pathogen": "Magnaporthe oryzae (Fungus)",
+      "crops_affected": ["Rice"],
+      "symptoms": "Diamond-shaped lesions with grey center and brown border on leaves; neck rot at panicle base",
+      "conditions": "High humidity, cloudy weather, excess nitrogen",
+      "severity": "High - can cause complete crop failure in neck blast",
+      "organic_control": ["Seed treatment with Trichoderma viride", "Pseudomonas fluorescens foliar spray"],
+      "chemical_control": ["Tricyclazole 75WP @ 0.6g/L", "Isoprothiolane 40EC @ 1.5ml/L", "Tebuconazole 25.9EC @ 1ml/L"],
+      "prevention": "Use resistant varieties; balanced nutrition; avoid late nitrogen application"
+    },
+    {
+      "name": "Cotton Bollworm (American)",
+      "type": "pest",
+      "hindi": "बॉलवर्म",
+      "scientific": "Helicoverpa armigera",
+      "crops_affected": ["Cotton", "Tomato", "Chickpea", "Sorghum"],
+      "symptoms": "Circular holes in bolls; pin-hole entry with frass; damaged bolls drop",
+      "severity": "Very High - major cotton pest",
+      "organic_control": ["NPV (Nuclear Polyhedrosis Virus) spray", "Neem seed kernel extract 5%", "Pheromone traps"],
+      "chemical_control": ["Profenofos 50EC @ 2ml/L", "Indoxacarb 15.8SC @ 1ml/L", "Chlorantraniliprole 18.5SC @ 0.4ml/L"],
+      "ipm_strategy": "Pheromone monitoring; avoid spraying 6AM-10AM when bees are active; rotate chemicals"
+    },
+    {
+      "name": "Powdery Mildew",
+      "type": "disease",
+      "hindi": "चूर्णिल आसिता",
+      "pathogen": "Erysiphe spp. (Fungus)",
+      "crops_affected": ["Wheat", "Peas", "Grapes", "Cucurbits"],
+      "symptoms": "White powdery coating on leaves, stem, pods; leaves yellow and dry",
+      "conditions": "Dry conditions with high humidity; moderate temperatures 15-25°C",
+      "severity": "Moderate to High",
+      "organic_control": ["Neem oil spray", "Baking soda solution (1% NaHCO3)", "Sulfur dust"],
+      "chemical_control": ["Propiconazole 25EC @ 1ml/L", "Myclobutanil 10WP @ 1g/L", "Carbendazim 50WP @ 1g/L"],
+      "prevention": "Resistant varieties; avoid excess nitrogen; proper plant spacing"
+    }
+  ],
+  "government_schemes": [
+    {
+      "name": "PM-KISAN (Pradhan Mantri Kisan Samman Nidhi)",
+      "type": "Direct Income Support",
+      "benefit": "₹6,000 per year in 3 installments of ₹2,000",
+      "eligibility": "All landholding farmer families with cultivable land",
+      "documents": ["Aadhaar card", "Land records (Khasra/Khatauni)", "Bank account details"],
+      "how_to_apply": "Visit pmkisan.gov.in or nearest CSC center",
+      "helpline": "155261 or 011-24300606",
+      "website": "https://pmkisan.gov.in"
+    },
+    {
+      "name": "PMFBY (Pradhan Mantri Fasal Bima Yojana)",
+      "type": "Crop Insurance",
+      "benefit": "Insurance coverage for crop losses due to natural calamities",
+      "premium": "Kharif: 2%, Rabi: 1.5%, Horticulture: 5% of sum insured",
+      "eligibility": "All farmers growing notified crops; mandatory for loanee farmers",
+      "documents": ["Land records", "Loan documents (if applicable)", "Aadhaar", "Bank account"],
+      "how_to_apply": "Apply through bank, CSC or pmfby.gov.in before cutoff date",
+      "helpline": "1800-200-7710",
+      "website": "https://pmfby.gov.in"
+    },
+    {
+      "name": "PM Kisan Maan Dhan Yojana",
+      "type": "Pension Scheme",
+      "benefit": "₹3,000 monthly pension after age 60",
+      "eligibility": "Small & marginal farmers aged 18-40 years with landholding up to 2 hectares",
+      "premium": "₹55-₹200/month depending on age of entry",
+      "documents": ["Aadhaar card", "Land records", "Savings bank account", "IFSC code"],
+      "how_to_apply": "Enroll at nearest CSC center or maandhan.in",
+      "helpline": "1800-3000-3468",
+      "website": "https://maandhan.in"
+    },
+    {
+      "name": "Kisan Credit Card (KCC)",
+      "type": "Agricultural Credit",
+      "benefit": "Short-term credit for crop cultivation, post-harvest expenses, allied activities",
+      "credit_limit": "Based on land holding and crop; typically ₹50,000-₹5,00,000",
+      "interest_rate": "7% per annum (2% subvention + 3% prompt repayment incentive)",
+      "eligibility": "All farmers, tenant farmers, sharecroppers, SHGs",
+      "documents": ["Land records", "Aadhaar", "PAN", "Photo", "Bank statement"],
+      "how_to_apply": "Apply at nearest bank branch or through cooperative societies",
+      "helpline": "Contact nearest bank branch"
+    },
+    {
+      "name": "PMKSY (Pradhan Mantri Krishi Sinchayee Yojana)",
+      "type": "Irrigation Subsidy",
+      "benefit": "Subsidy on micro-irrigation systems (drip and sprinkler)",
+      "subsidy_percentage": "55% for small/marginal farmers; 45% for others",
+      "eligibility": "All farmers; priority to water scarce areas",
+      "components": ["Har Khet Ko Pani", "More Crop Per Drop", "Watershed Development"],
+      "how_to_apply": "Apply through State Agriculture Department or pmksy.gov.in",
+      "helpline": "1800-180-1551",
+      "website": "https://pmksy.gov.in"
+    },
+    {
+      "name": "Soil Health Card Scheme",
+      "type": "Soil Testing",
+      "benefit": "Free soil health card with crop-wise fertilizer recommendations",
+      "frequency": "Once every 2 years",
+      "eligibility": "All farmers",
+      "how_to_apply": "Contact nearest Krishi Vigyan Kendra (KVK) or Agriculture Department",
+      "website": "https://soilhealth.dac.gov.in"
+    },
+    {
+      "name": "eNAM (National Agriculture Market)",
+      "type": "Market Linkage",
+      "benefit": "Online trading platform for better price discovery; direct market access",
+      "eligibility": "Registered farmers; crops must be quality tested",
+      "how_to_register": "Register at enam.gov.in with Aadhaar and bank details",
+      "helpline": "1800-270-0224",
+      "website": "https://enam.gov.in"
+    }
+  ],
+  "seasonal_calendar": {
+    "Kharif": {
+      "sowing": "June-July",
+      "harvesting": "October-November",
+      "crops": ["Rice", "Cotton", "Soybean", "Maize", "Groundnut", "Bajra", "Jowar", "Turmeric", "Ginger"]
+    },
+    "Rabi": {
+      "sowing": "October-November",
+      "harvesting": "March-April",
+      "crops": ["Wheat", "Mustard", "Gram", "Lentil", "Peas", "Potato", "Onion", "Garlic"]
+    },
+    "Zaid": {
+      "sowing": "February-March",
+      "harvesting": "May-June",
+      "crops": ["Watermelon", "Muskmelon", "Cucumber", "Bitter gourd", "Moong", "Pumpkin"]
+    }
+  },
+  "irrigation_methods": [
+    {
+      "method": "Drip Irrigation",
+      "water_saving": "30-50% vs flood",
+      "suitable_crops": ["Sugarcane", "Cotton", "Vegetables", "Fruits", "Banana"],
+      "cost_per_ha": "₹60,000-₹1,20,000",
+      "subsidy": "45-55% under PMKSY",
+      "advantages": ["Water saving", "Fertilizer can be applied through water (Fertigation)", "Reduces weed growth"]
+    },
+    {
+      "method": "Sprinkler Irrigation",
+      "water_saving": "20-40% vs flood",
+      "suitable_crops": ["Wheat", "Groundnut", "Vegetables", "Pulses"],
+      "cost_per_ha": "₹20,000-₹60,000",
+      "subsidy": "45-55% under PMKSY",
+      "advantages": ["Uniform distribution", "Suitable for uneven terrain", "Reduces soil erosion"]
+    },
+    {
+      "method": "Flood/Furrow Irrigation",
+      "water_saving": "Baseline",
+      "suitable_crops": ["Rice", "Sugarcane", "Maize"],
+      "cost_per_ha": "Low",
+      "advantages": ["Simple operation", "Low cost"],
+      "disadvantages": ["High water use", "Waterlogging risk", "Nutrient leaching"]
+    }
+  ],
+  "organic_farming": {
+    "bio_fertilizers": [
+      {"name": "Rhizobium", "use": "Nitrogen fixation in legume crops", "dose": "250g per 10kg seed"},
+      {"name": "Azotobacter", "use": "Nitrogen fixation in non-legume crops", "dose": "5kg per hectare as soil application"},
+      {"name": "PSB (Phosphate Solubilizing Bacteria)", "use": "Phosphorus solubilization", "dose": "5kg per hectare"},
+      {"name": "Mycorrhiza", "use": "Phosphorus & micronutrient uptake", "dose": "4kg per hectare"}
+    ],
+    "vermicompost": {
+      "benefits": "Improves soil structure, water retention, microbial activity",
+      "application_rate": "5-10 tonnes per hectare",
+      "production": "Red earthworms (Eisenia fetida) process organic waste in 45-60 days"
+    },
+    "green_manures": ["Dhaincha (Sesbania)", "Sunhemp (Crotalaria)", "Cowpea", "Cluster bean"],
+    "certification": "Apply for India Organic certification through APEDA empanelled agencies"
+  }
+}

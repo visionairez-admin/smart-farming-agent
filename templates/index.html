@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KrishiMitra — Smart Farming Agent</title>
+  <meta name="description" content="AI-powered Smart Farming Assistant for Indian farmers — crop advisory, pest detection, market insights, and government schemes." />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     NAVIGATION BAR
+════════════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-navbar sticky-top shadow-sm">
+  <div class="container-fluid px-3">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <span class="brand-icon">🌾</span>
+      <span class="brand-text">KrishiMitra</span>
+      <span class="brand-sub d-none d-md-inline">| Smart Farming Agent</span>
+    </a>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navContent">
+      <!-- Nav Links -->
+      <ul class="navbar-nav me-auto ms-3 gap-1">
+        <li class="nav-item">
+          <a class="nav-link nav-tab active" href="#" data-tab="chat">
+            <i class="bi bi-chat-dots-fill me-1"></i>Chat
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-tab" href="#" data-tab="dashboard">
+            <i class="bi bi-speedometer2 me-1"></i>Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-tab" href="#" data-tab="crops">
+            <i class="bi bi-flower2 me-1"></i>Crops
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-tab" href="#" data-tab="schemes">
+            <i class="bi bi-bank2 me-1"></i>Schemes
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-tab" href="#" data-tab="profile">
+            <i class="bi bi-person-fill me-1"></i>Farm Profile
+          </a>
+        </li>
+      </ul>
+
+      <!-- Controls -->
+      <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+        <!-- Language Selector -->
+        <select id="langSelect" class="form-select form-select-sm lang-select" aria-label="Language">
+          <option value="en">🇬🇧 English</option>
+          <option value="hi">🇮🇳 हिंदी</option>
+          <option value="mr">🌾 मराठी</option>
+          <option value="te">🌾 తెలుగు</option>
+          <option value="ta">🌾 தமிழ்</option>
+          <option value="kn">🌾 ಕನ್ನಡ</option>
+          <option value="pa">🌾 ਪੰਜਾਬੀ</option>
+        </select>
+
+        <!-- Dark Mode Toggle -->
+        <button id="themeToggle" class="btn btn-sm btn-outline-light" title="Toggle dark mode">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+
+        <!-- Status Indicator -->
+        <span id="statusDot" class="status-dot status-unknown" title="API Status"></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════════════════════════ -->
+<main class="main-container">
+
+  <!-- ─── TAB: CHAT ──────────────────────────────────────────────── -->
+  <section id="tab-chat" class="tab-section active-tab">
+    <div class="chat-layout">
+
+      <!-- Sidebar: Agent Selector + Quick Actions -->
+      <aside class="chat-sidebar d-none d-lg-flex flex-column gap-3">
+        <div class="sidebar-card">
+          <h6 class="sidebar-title"><i class="bi bi-robot me-2"></i>Select Agent</h6>
+          <div class="d-flex flex-column gap-2">
+            <button class="agent-btn active" data-agent="auto">
+              <i class="bi bi-stars"></i>
+              <span>Auto (Smart)</span>
+            </button>
+            <button class="agent-btn" data-agent="crop">
+              <i class="bi bi-flower2"></i>
+              <span>Crop Advisory</span>
+            </button>
+            <button class="agent-btn" data-agent="weather">
+              <i class="bi bi-cloud-sun-fill"></i>
+              <span>Weather & Irrigation</span>
+            </button>
+            <button class="agent-btn" data-agent="pest">
+              <i class="bi bi-bug-fill"></i>
+              <span>Pest & Disease</span>
+            </button>
+            <button class="agent-btn" data-agent="market">
+              <i class="bi bi-graph-up-arrow"></i>
+              <span>Market Insights</span>
+            </button>
+            <button class="agent-btn" data-agent="scheme">
+              <i class="bi bi-bank2"></i>
+              <span>Govt. Schemes</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h6 class="sidebar-title"><i class="bi bi-lightning-fill me-2"></i>Quick Questions</h6>
+          <div class="d-flex flex-column gap-2">
+            <button class="quick-btn" data-q="What crops should I plant this Kharif season?">🌱 Kharif Crops</button>
+            <button class="quick-btn" data-q="What is the MSP for wheat this year?">💰 Wheat MSP</button>
+            <button class="quick-btn" data-q="My cotton leaves are turning yellow. What disease is this?">🍃 Yellow Leaves</button>
+            <button class="quick-btn" data-q="How to apply for PM-KISAN scheme?">📋 PM-KISAN Apply</button>
+            <button class="quick-btn" data-q="What is the irrigation schedule for paddy rice?">💧 Paddy Irrigation</button>
+            <button class="quick-btn" data-q="Best fertilizer dose for soybean per hectare">🌿 Soybean Fertilizer</button>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h6 class="sidebar-title"><i class="bi bi-camera-fill me-2"></i>Image Analysis</h6>
+          <p class="sidebar-desc">Upload a photo of diseased leaves or pests for AI diagnosis</p>
+          <label class="btn btn-sm btn-success w-100" for="imageUpload">
+            <i class="bi bi-upload me-2"></i>Upload Image
+          </label>
+          <input type="file" id="imageUpload" accept="image/*" class="d-none" />
+          <div id="imagePreview" class="image-preview mt-2 d-none"></div>
+        </div>
+      </aside>
+
+      <!-- Chat Panel -->
+      <div class="chat-panel d-flex flex-column">
+        <!-- Chat Header -->
+        <div class="chat-header d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center gap-3">
+            <div class="agent-avatar">
+              <i class="bi bi-robot"></i>
+            </div>
+            <div>
+              <div class="chat-agent-name">KrishiMitra AI</div>
+              <div id="activeAgentLabel" class="chat-agent-desc">Smart Farming Assistant • Auto Mode</div>
+            </div>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-outline-secondary d-lg-none" id="mobileAgentToggle" title="Select Agent">
+              <i class="bi bi-robot"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-danger" id="clearChatBtn" title="Clear Chat">
+              <i class="bi bi-trash3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+          <!-- Welcome Message -->
+          <div class="message message-bot">
+            <div class="message-avatar"><i class="bi bi-robot"></i></div>
+            <div class="message-content">
+              <div class="message-bubble">
+                <p><strong>Jai Kisan! 🌾</strong> Namaste! I am <strong>KrishiMitra</strong>, your AI-powered farming companion built on <strong>IBM watsonx.ai</strong>.</p>
+                <p>I can help you with:</p>
+                <ul>
+                  <li>🌱 <strong>Crop Planning</strong> — varieties, sowing, fertilizer schedules</li>
+                  <li>🌦️ <strong>Weather & Irrigation</strong> — alerts and scheduling</li>
+                  <li>🐛 <strong>Pest & Disease</strong> — diagnosis and treatment</li>
+                  <li>💰 <strong>Market Prices</strong> — MSP, mandis, selling tips</li>
+                  <li>📋 <strong>Government Schemes</strong> — PM-KISAN, PMFBY, KCC and more</li>
+                </ul>
+                <p>How can I assist you today? <em>(आज मैं आपकी कैसे मदद कर सकता हूं?)</em></p>
+              </div>
+              <div class="message-time">Just now</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div id="typingIndicator" class="typing-indicator d-none">
+          <div class="message-avatar"><i class="bi bi-robot"></i></div>
+          <div class="typing-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <small class="ms-2 text-muted" id="typingAgent">KrishiMitra is thinking...</small>
+        </div>
+
+        <!-- Image Upload Preview (Mobile) -->
+        <div id="mobileImagePreview" class="mobile-image-preview d-none d-lg-none mx-3 mb-2"></div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+          <!-- Mobile: Image Upload -->
+          <div class="d-flex d-lg-none mb-2 gap-2">
+            <label class="btn btn-sm btn-outline-success" for="mobileImageUpload">
+              <i class="bi bi-camera-fill"></i>
+            </label>
+            <input type="file" id="mobileImageUpload" accept="image/*" class="d-none" />
+          </div>
+
+          <div class="input-wrapper">
+            <textarea
+              id="chatInput"
+              class="chat-textarea"
+              placeholder="Ask about crops, pests, irrigation, market prices, schemes... (कोई भी कृषि प्रश्न पूछें)"
+              rows="1"
+              maxlength="2000"
+            ></textarea>
+            <button id="sendBtn" class="send-btn" title="Send message">
+              <i class="bi bi-send-fill"></i>
+            </button>
+          </div>
+          <div class="d-flex justify-content-between mt-1 px-1">
+            <small class="text-muted"><i class="bi bi-keyboard me-1"></i>Ctrl+Enter to send</small>
+            <small id="charCount" class="text-muted">0/2000</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Agent Sidebar (off-canvas) -->
+    <div class="offcanvas offcanvas-start" id="mobileAgentPanel" tabindex="-1">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Select Agent</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="d-flex flex-column gap-2">
+          <button class="agent-btn active" data-agent="auto">
+            <i class="bi bi-stars"></i><span>Auto (Smart)</span>
+          </button>
+          <button class="agent-btn" data-agent="crop">
+            <i class="bi bi-flower2"></i><span>Crop Advisory</span>
+          </button>
+          <button class="agent-btn" data-agent="weather">
+            <i class="bi bi-cloud-sun-fill"></i><span>Weather & Irrigation</span>
+          </button>
+          <button class="agent-btn" data-agent="pest">
+            <i class="bi bi-bug-fill"></i><span>Pest & Disease</span>
+          </button>
+          <button class="agent-btn" data-agent="market">
+            <i class="bi bi-graph-up-arrow"></i><span>Market Insights</span>
+          </button>
+          <button class="agent-btn" data-agent="scheme">
+            <i class="bi bi-bank2"></i><span>Govt. Schemes</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAB: DASHBOARD ─────────────────────────────────────────── -->
+  <section id="tab-dashboard" class="tab-section">
+    <div class="container-fluid py-4 px-3 px-md-4">
+      <h2 class="page-title"><i class="bi bi-speedometer2 me-2"></i>Farmer Dashboard</h2>
+
+      <!-- Stat Cards -->
+      <div class="row g-3 mb-4" id="dashboardStats">
+        <div class="col-6 col-md-3">
+          <div class="stat-card stat-green">
+            <div class="stat-icon"><i class="bi bi-flower2"></i></div>
+            <div class="stat-value" id="statTotalCrops">—</div>
+            <div class="stat-label">Crop Profiles</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-card stat-blue">
+            <div class="stat-icon"><i class="bi bi-bank2"></i></div>
+            <div class="stat-value" id="statTotalSchemes">—</div>
+            <div class="stat-label">Govt. Schemes</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-card stat-orange">
+            <div class="stat-icon"><i class="bi bi-calendar3"></i></div>
+            <div class="stat-value" id="statCurrentSeason">—</div>
+            <div class="stat-label">Current Season</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-card stat-purple">
+            <div class="stat-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div class="stat-value" id="statLocation">—</div>
+            <div class="stat-label">Your Location</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Season Crops -->
+      <div class="row g-3 mb-4">
+        <div class="col-12 col-lg-8">
+          <div class="dashboard-card">
+            <h5 class="card-section-title"><i class="bi bi-calendar-check me-2"></i>Current Season Crops</h5>
+            <div id="seasonCropCards" class="d-flex flex-wrap gap-2 mt-2"></div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="dashboard-card">
+            <h5 class="card-section-title"><i class="bi bi-person-vcard me-2"></i>Farm Profile</h5>
+            <div id="farmProfileSummary" class="profile-summary"></div>
+            <button class="btn btn-sm btn-outline-primary mt-3 w-100" onclick="KM.goToTab('profile')">
+              <i class="bi bi-pencil-fill me-2"></i>Edit Profile
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MSP Table -->
+      <div class="dashboard-card mb-4">
+        <h5 class="card-section-title"><i class="bi bi-currency-rupee me-2"></i>MSP Highlights 2024-25</h5>
+        <div class="table-responsive mt-2">
+          <table class="table table-hover table-sm msp-table">
+            <thead>
+              <tr>
+                <th>Crop</th>
+                <th>MSP (₹/quintal)</th>
+                <th>Market Range</th>
+                <th>Season</th>
+              </tr>
+            </thead>
+            <tbody id="mspTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quick Action Cards -->
+      <div class="row g-3">
+        <div class="col-12">
+          <h5 class="card-section-title mb-3"><i class="bi bi-lightning-charge-fill me-2"></i>Quick Actions</h5>
+        </div>
+        <div class="col-6 col-md-3">
+          <button class="quick-action-card w-100" onclick="KM.askQuick('What crops should I plant this season based on my farm profile?')">
+            <i class="bi bi-flower2"></i>
+            <span>Crop Recommendations</span>
+          </button>
+        </div>
+        <div class="col-6 col-md-3">
+          <button class="quick-action-card w-100" onclick="KM.askQuick('What is the current weather forecast and irrigation advice for my crops?')">
+            <i class="bi bi-cloud-sun-fill"></i>
+            <span>Weather Advice</span>
+          </button>
+        </div>
+        <div class="col-6 col-md-3">
+          <button class="quick-action-card w-100" onclick="KM.askQuick('What government schemes am I eligible for as a farmer?')">
+            <i class="bi bi-bank2"></i>
+            <span>Check Eligibility</span>
+          </button>
+        </div>
+        <div class="col-6 col-md-3">
+          <button class="quick-action-card w-100" onclick="KM.askQuick('What are the current market prices and best time to sell my crops?')">
+            <i class="bi bi-graph-up-arrow"></i>
+            <span>Market Prices</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAB: CROPS ─────────────────────────────────────────────── -->
+  <section id="tab-crops" class="tab-section">
+    <div class="container-fluid py-4 px-3 px-md-4">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4">
+        <h2 class="page-title mb-0"><i class="bi bi-flower2 me-2"></i>Crop Knowledge Base</h2>
+        <div class="d-flex gap-2">
+          <input type="text" id="cropSearch" class="form-control form-control-sm" placeholder="Search crops..." style="width:200px" />
+          <select id="seasonFilter" class="form-select form-select-sm" style="width:130px">
+            <option value="">All Seasons</option>
+            <option value="Kharif">Kharif</option>
+            <option value="Rabi">Rabi</option>
+            <option value="Annual">Annual</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="cropCards" class="row g-3"></div>
+    </div>
+  </section>
+
+  <!-- ─── TAB: SCHEMES ──────────────────────────────────────────── -->
+  <section id="tab-schemes" class="tab-section">
+    <div class="container-fluid py-4 px-3 px-md-4">
+      <h2 class="page-title"><i class="bi bi-bank2 me-2"></i>Government Schemes</h2>
+      <p class="text-muted mb-4">All central government agricultural schemes available for Indian farmers</p>
+      <div id="schemeCards" class="row g-3"></div>
+    </div>
+  </section>
+
+  <!-- ─── TAB: PROFILE ──────────────────────────────────────────── -->
+  <section id="tab-profile" class="tab-section">
+    <div class="container-fluid py-4 px-3 px-md-4">
+      <h2 class="page-title"><i class="bi bi-person-circle me-2"></i>Farm Profile</h2>
+      <p class="text-muted mb-4">Set your farm details to get personalised recommendations</p>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <div class="profile-form-card">
+            <form id="profileForm">
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label class="form-label">👤 Farmer Name</label>
+                  <input type="text" id="pName" class="form-control" placeholder="Your name" />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">📍 Location / District</label>
+                  <input type="text" id="pLocation" class="form-control" placeholder="e.g. Nagpur, Maharashtra" />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">🏞️ Land Size (acres)</label>
+                  <input type="number" id="pLandSize" class="form-control" placeholder="e.g. 5" min="0.1" step="0.5" />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">🌍 Soil Type</label>
+                  <select id="pSoilType" class="form-select">
+                    <option>Black Cotton Soil</option>
+                    <option>Alluvial Soil</option>
+                    <option>Red Soil</option>
+                    <option>Laterite Soil</option>
+                    <option>Sandy Loam</option>
+                    <option>Loamy</option>
+                    <option>Clay</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">💧 Water Source</label>
+                  <select id="pWaterSource" class="form-select">
+                    <option>Borewell</option>
+                    <option>Canal Irrigation</option>
+                    <option>Rain-fed</option>
+                    <option>River/Lake</option>
+                    <option>Drip Irrigation</option>
+                    <option>Sprinkler</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">🌾 Current / Planned Crops</label>
+                  <input type="text" id="pCurrentCrops" class="form-control" placeholder="e.g. Cotton, Soybean" />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">📅 Season</label>
+                  <select id="pSeason" class="form-select">
+                    <option>Kharif</option>
+                    <option>Rabi</option>
+                    <option>Zaid</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">🌿 Farming Type</label>
+                  <select id="pFarmingType" class="form-select">
+                    <option>Conventional</option>
+                    <option>Organic</option>
+                    <option>Mixed / Integrated</option>
+                    <option>Natural Farming</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">💵 Budget</label>
+                  <select id="pBudget" class="form-select">
+                    <option>Low (&lt;₹50,000)</option>
+                    <option>Medium (₹50,000–₹2,00,000)</option>
+                    <option>High (&gt;₹2,00,000)</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">📱 Has Aadhaar Card?</label>
+                  <select id="pHasAadhaar" class="form-select">
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+                <div class="col-12 mt-2">
+                  <button type="submit" class="btn btn-primary btn-lg w-100 save-btn">
+                    <i class="bi bi-save2-fill me-2"></i>Save Farm Profile
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     TOAST NOTIFICATION
+════════════════════════════════════════════════════════════════════ -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+  <div id="toastMsg" class="toast align-items-center border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body fw-semibold" id="toastText"></div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     CROP DETAIL MODAL
+════════════════════════════════════════════════════════════════════ -->
+<div class="modal fade" id="cropModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header crop-modal-header">
+        <h5 class="modal-title" id="cropModalTitle">Crop Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="cropModalBody"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="cropAskBtn">
+          <i class="bi bi-chat-dots-fill me-2"></i>Ask KrishiMitra
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="/static/js/app.js"></script>
+</body>
+</html>
